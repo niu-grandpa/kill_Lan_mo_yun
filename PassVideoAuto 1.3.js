@@ -1,3 +1,8 @@
+/*
+*Version3-最终版
+*已通过测试，效果完美
+*Time：2020-4-14
+*/
 var Tip = $('<div></div>') //绘制提示框窗口节点
 Tip.text("😄已启用视频自动化 @作者：M ₩ A");
 $(Tip).css({ //添加窗口样式
@@ -26,7 +31,7 @@ var resType; //获取视频类型
 var len = video.length; //获取所有视频数量
 var hasClass = res.hasClass("preview-file", "download-res", "preview"); //资源一概去除类名
 var nums = 0; //记录请求次数
-var to = 9999;
+var to = 9999; //用于发送给服务器的视频已观看时间虚假数据
 if (hasClass) res.removeClass("preview-file").removeClass("download-res"); //移除非视频资源类名，以防点击时跳出页面 
 
 setTimeout(function() { //提示窗口出现
