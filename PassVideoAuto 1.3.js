@@ -3,7 +3,7 @@
 *已通过测试，效果完美
 *Time：2020-4-14
 */
-var Tip = $('<div></div>') //绘制提示框窗口节点
+var Tip = $('<div></div>') //提示框窗口节点
 Tip.text("😄已启用视频自动化 @作者：M ₩ A");
 $(Tip).css({ //添加窗口样式
     "width": "100%",
@@ -43,8 +43,15 @@ function autoClick() {
         window.location.reload(); //刷新当前页面.
     }, 6000)
 }
-
-video.click(function(e) { //视频点击事件
+//点击关闭按钮 调用自动化函数
+close.click(function() { 
+    console.log("自动化操作3秒后开始...");
+    alert("等待3秒后自动开始")
+    res.removeClass("preview"); //移除视频资源类名，防止自动点击视时打开视频造成报错
+    autoClick();
+});
+ //视频点击事件
+video.click(function(e) {
     resKey = e.target.dataset["value"];
     resType = e.target.dataset["mime"];
     if (resType == "video") {
@@ -67,17 +74,10 @@ video.click(function(e) { //视频点击事件
     }
     console.log("资源Key:" + resKey)
 });
-
-close.click(function() { //点击关闭按钮 调用自动化函数
-    console.log("自动化操作3秒后开始...");
-    alert("等待3秒后自动开始")
-    res.removeClass("preview"); //移除视频资源类名，防止自动点击视时打开视频造成报错
-    autoClick();
-});
-
-setTimeout(function() { //提示窗口出现
+//显示窗口
+setTimeout(function() { 
     $(Tip).css("opacity", 1);
     alert('请随意点击一个视频并关闭它，即可激活自动化操作！！！')
 }, 1000);
-
-if (hasClass) res.removeClass("preview-file").removeClass("download-res"); //移除非视频资源类名，以防点击时跳出页面 
+//移除非视频资源类名，以防点击时跳出页面 
+if (hasClass) res.removeClass("preview-file").removeClass("download-res"); 
