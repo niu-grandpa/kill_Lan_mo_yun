@@ -41,7 +41,7 @@ function autoClick() {
     }, 2500)
     setTimeout(function() {
         window.location.reload(); //刷新当前页面.
-    }, 6000)
+    }, 12000)
 }
 //点击关闭按钮 调用自动化函数
 close.click(function() { 
